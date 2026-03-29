@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // exercice 1 : 
+        // let n1 = +prompt("donner le premier nombre ! ") ;
+        // let n2 = +prompt("donner le DEUxieme nombre ! ") ;
+        // console.log(n1 + n2) ; 
+        // if(n1 % n2 == 0){
+        //     console.log(`${n1} est multiple de ${n2} `)
+        // }else if (n2 % n1 == 0){
+        //     console.log(`${n2} est multiple de ${n1} `)
+        // }
+
+        //Exercice 2 :
+        // let n = +prompt("Donner un nombre :")
+        // if(isNaN(n) || n == ""  || n == null){
+        //     console.log("ce n'est pas un nombre ! ")
+        // }else{
+        //     if(n % 2 == 0){
+        //         console.log(`${n} est Pair`)
+        //     }else{
+        //         console.log(`${n} est ImPair`)               
+        //     }
+        // }
+
+        // Exercice 3 : 
+        // let nombre  = +prompt("Donner un nombre : ") ; 
+        // for(let i = 1 ; i < nombre ; i++ ){
+        //     if(i % 2 == 0){
+        //         console.log(i)
+        //     }
+        // }
+        //Exercice 4 : 
+        // let notes = [] ; 
+        // let somme = 0 ; 
+        // for(let i = 1  ; i <= 6 ; i++){
+        //     let n = +prompt(`Donner la note ${i}`)
+        //     notes.push(n);
+        //     somme += n ;
+        // }
+        // for(let i of notes){
+        //     console.log(i)
+        // }
+        // console.log(`la moyenne est : ${Math.floor(somme/notes.length)}`)
+        //Exercice 5 : 
+        // let base = +prompt("Donner la base du triangle");
+        // let hauter = +prompt("Donner la hauter de triangle") ;
+        // let surface  = (base * hauter)/2 ; 
+        // console.log(`La Surface du triangle est ${surface}`)
+        // Exercice 6 : 
+        let magique = Math.round(Math.random() * 100) ;
+        let n ;
+        do{
+        n = +prompt("Deviner le nombre exacte")
+        if(n > magique){
+            alert('Trop petit')
+        }else if(n < magique){
+            alert('Trop grand')
+        }
+        }
+        while(n != magique);
+        console.log(`congraaats le nombre est ${magique}`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <!-- <th>
+            <td>Nombres paires</td>
+            <td>Nombres impaires</td>
+        </th>
+        for
+        <tr>
+            <td></td>
+        </tr>
+    </table> -->
+    <script>
+    //     // Exercice 1 : 
+    //     let semaine = ["lan", "mra", "mer", "jeu", "ven", "sam", "ddi" ];
+    //     semaine.pop();
+    //     semaine.push("Dim")
+    //     semaine.shift();
+    //     semaine.unshift("Lun")
+    //     console.log(semaine);
+    //     semaine[1] = "mar" ;
+    //     console.log(semaine.length);
+    //     console.log(semaine[3]);
+    //     console.log(semaine.includes("ven")) ;
+    //     console.log(semaine.indexOf("Dim"));
+    //Exercice 2 : 
+    // let fruits1 = [ "pomme", "raisin", "banane", "kiwi"  ] ;
+    // let demande = prompt("que se que vous voulez acheter ?")
+    // if(fruits1.includes(demande)){
+    //     console.log("OK")
+    //     let r = fruits1.indexOf(demande)
+    //     fruits1.splice(r , 1);
+    // }else{
+    //     console.log("Indisponsable")
+    // }
+    // fruits1 = fruits1.sort();
+    // console.log(fruits1)
+    // console.log(fruits1.reverse())
+    // if(!fruits1.includes("orange")){
+    //     fruits1.push("orange")
+    // }
+    // console.log(fruits1)
+    // let  fruits2 = [ "Melon", "Cerise", "Fraise"];
+    // let fruits = [...fruits1,...fruits2] ;
+    // console.log(fruits)
+    // Exercice 3 : 
+    let tab = []
+    let n ;
+    let comp = 0;
+    for(let i = 1 ; i <= 7 ;i++ ){
+        do{
+        comp += 1 ;
+        n = +prompt(`Donner le nombre ${i}`)
+        }
+        while(isNaN(n) || n == "" || n == null || n > 99 || n  < 9)
+        tab.push(n)
+    }
+    let pairs = [];
+    let impairs = [] ; 
+    for(let i of tab){
+        if(i % 2 == 0){
+            pairs.push(i) ; 
+        }else{
+            impairs.push(i);
+        }
+    }
+
+    let itterationsF = comp - 7 ;
+    console.log(pairs);
+    console.log(impairs);
+    console.log(itterationsF)
+    console.table({"Nombres pairs:" : pairs,"Nombres impairs":impairs,"Nombre des itérations fausses":itterationsF})
+    </script>
+</body>
+</html>

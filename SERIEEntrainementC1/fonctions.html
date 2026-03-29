@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Exercice 1 : 
+        // let estPair = n => {if(n % 2 == 0){return true}else{return false}} ;
+        // console.log(estPair(5))
+        // let carre = m => m * m ;
+        // console.log(carre(2))
+        // function minMax(a , b , c){
+        //     return ({ Min: Math.min(a , b , c) , Max:  Math.max(a , b , c)} )
+        // }
+        // console.log(minMax(4 , 8 ,7))
+        // Exercice 2 : 
+        // function factorielle(n){
+        //     let res = n;
+        //     if(n < 0){
+        //         console.log(null);
+        //     }else if(n == 0){
+        //         console.log(1)
+        //     }else{
+        //         for(let i = n -1 ; i >= 1 ; i--){
+        //             res *=   i  ;
+        //         }
+        //         return res;
+        //     }
+        // }
+        // console.log(factorielle(8)) ;
+        // Exercice 3 : 
+//         class Véhicule{
+//             constructor(marque , vitesseMax){
+//                 this.marque = marque 
+//                 this.vitesseMax = vitesseMax 
+//             }
+//             decrire(){
+//                 return `[${this.marque}]--Vitesse MAX : [${this.vitesseMax}]km/h`
+//             }
+//         }
+// class Voiture extends Véhicule{
+//     constructor(marque , vitesseMax ,nbPortes){
+//         super(marque , vitesseMax),
+//         this.nbPortes = nbPortes
+//     }
+//     info(){
+//         return `[${this.marque}]--[${this.nbPortes}] portes--VitesseMax : [${this.vitesseMax}]km/h`
+//     }
+// }
+// let v1 = new Voiture("Audi" , 320 , 4) ;
+// console.log(v1.info())
+        // Exercice 4 : 
+        // function statistique(...v){
+        //     let m = Math.max(...v)
+        //     let n = Math.min(...v)
+        //     let somme = 0 ;
+        //     let t = [...v] ;
+        //     for(let i of t){
+        //         somme += i
+        //     }
+        //     let moyenne = somme/t.length
+        //     return {"somme":somme,"moyenne":moyenne ,"min":n,"max":m}
+        // }
+        // console.log(statistique(3,5,6,16,20))
+
+        // Exercice 5 : 
+        class CompteBancaire{
+            constructor(titulaire , solde = 0){
+                this.titulaire = titulaire ;
+                this.solde = solde
+            }
+            deposer(montant){
+                if(montant > 0){
+                    this.solde += montant ;
+                }else{
+                    console.log("Negatiiif")
+                }
+            }
+            retirer(montant){
+                if(montant <= this.solde){
+                    this.solde -= montant
+                }else{
+                    console.log("Insuffisaaant")
+                }
+            }
+            afficherSolde(){
+                console.log(`${this.titulaire} : ${this.solde}DH`)
+            }
+        }
+
+        let n1 =  new CompteBancaire ("Nora");
+        let n2 = new CompteBancaire ("Ziad" ,3000)
+        n1.afficherSolde();
+        n2.afficherSolde() ;
+        n1.deposer(10000);
+        n1.afficherSolde();
+        n2.retirer(1000) ;
+        n2.afficherSolde();
+        n2.retirer(5000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- <script src="index.js"></script> -->
+    <script src="S4.js"></script> 
+     
+Exercice 1 :  <br>
+        <input type="text" id="nb1">
+        <label for="">+</label>
+        <input type="text" id="nb2">
+        <label id="cal" for="">resultat</label>
+        <button type="submit"  onclick="calcuer()">Calculer</button>
+         <br><br>
+Exercice 2 : <br>
+        <input type="text" id="v1">
+        <input type="text" id="v2">
+        <button type="submit"  onclick="permuter()">permuter</button>
+<br> <br>
+Exercice 3 : <br>
+<input type="text" name="nom" id="nomComplet">
+ <button type="submit"  onclick="separer()">separer</button>
+ <br> 
+ Nom<span id="nom"></span> <br>
+ Prenom<span id="prenom"></span>
+  
+ <br> <br>
+Exercice 4 : <br>
+ <input type="text" name="nom" id="nombre">
+ <button type="submit"  onclick="absolue()">Valeur absolut</button>
+ Resultat : <label id="s"></label><br>
+
+<br> <br>
+Exercice 5 : <br>
+<input type="text" name="nom" id="no1">
+<input type="text" name="nom" id="no2">
+<button type="submit"  onclick="SVA()">SVA</button>
+Resultat: <label  id="re"></label>
+
+<br><br>
+Exercice 6 : <br>
+<input type="text" name="nom" id="n1">
+<input type="text" name="nom" id="n2">
+<select name="" id="options">
+    <option id="1" value="+">+</option>
+    <option id="2" value="-">-</option>
+    <option id="3" value="*">*</option>
+    <option id="4" value="/">/</option>
+</select>
+<br> <br>
+<button type="submit"  onclick="calcule()">Calculer</button>
+Resultat: <label id="res" ></label>
+
+<script> 
+
+    function calcuer(){
+        let n1 = document.getElementById("nb1").value;
+        let n2 = document.getElementById("nb2").value;  
+        document.querySelector("#cal").innerHTML = +n1 + +n2;
+    }
+    function permuter(){
+        let vv1 = document.getElementById("v1").value;
+        let vv2 = document.getElementById("v2").value;
+        document.getElementById("v1").value = vv2 ;
+        document.getElementById("v2").value = vv1 ;
+    }
+    function separer(){
+        let nomComplet = document.getElementById("nomComplet").value;
+        let  n = nomComplet.split(' ') ;
+        document.querySelector("#nom").innerHTML = " "+ n[0];
+        document.querySelector("#prenom").innerHTML =" " + n[1];
+    }   
+    function absolue(ne){
+        // let ne = document.getElementById("nombre").value;
+        if(+ne > 0){
+             document.querySelector("#s").innerHTML = ne;
+        }else{
+            document.querySelector("#s").innerHTML = -ne;
+        }
+    }
+    function SVA(){
+         let n1 = +document.getElementById("no1").value;
+         let n2 = +document.getElementById("no2").value;
+         if(n1 < 0){
+           n1 = -n1 ;
+        }
+        if(n2 < 0){
+           n2 = -n2 ;
+        }
+         document.querySelector("#re").innerHTML = n1 + n2;
+    }
+    function calcule(){
+        let n1 = +document.getElementById("n1").value;
+        let n2 = +document.getElementById("n2").value;
+        let op = document.getElementById("options").value;
+        if(op == "+"){
+        document.querySelector("#res").innerHTML =n1 + n2 ;
+         }else if(op == "-"){
+        document.querySelector("#res").innerHTML =n1 - n2 ;
+         }else if(op == "*"){
+        document.querySelector("#res").innerHTML =n1 * n2 ;
+         }else if(op == "/" ){
+        document.querySelector("#res").innerHTML =n1 / n2 ;
+         }else{
+        document.querySelector("#res").innerHTML ="Erreur" ;
+         }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Exercice 1 : 
+    <input type="number" id="cel">
+    <button onclick="converter()">converter</button>
+    <p id="res"></p> -->
+    <!-- Exercice 2 : 
+    <div style="display: flex;flex-direction: column; justify-content: center; top: 100px; text-align: center;">
+    <h1 style="font-weight: bold;color: rgb(41, 111, 232)">Jouer  Pierre - Feuille - Ciseaux  !!!</h1>
+    <div style="display: flex; justify-content: center;gap: 30px;position: relative;top: 20px;">
+    <button><img src="images/ciseau.jpg" onclick="jouer('ciseau')" width="100px" height="100px" alt=""></button>
+    <button><img src="images/feuile.jpg" onclick="jouer('feuille')" width="100px" height="100px" alt=""></button>
+    <button><img src="images/pierre.jpg" onclick="jouer('pierre')" width="100px" height="100px" alt=""></button>
+    </div>
+    <h3 id="ch"  style="font-weight: bold;color: rgb(184, 108, 3) ; position: relative; top: 40px;"></h3>
+    <h2 id="res"  style="font-weight: bold;color: rgb(41, 128, 0) ; position: relative; top: 40px;"></h2>
+    </div> -->
+    <!-- Exercice 4: -->
+    <!-- <input type="number" name="n1" id="n1" placeholder="Nombre 1"> 
+    <input type="number" name="n1" id="n2" placeholder="Nombre 2"> 
+    <select name="op" id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">x</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <button onclick="calculer()">Calculer</button>  <br> <br>
+    <label for="" id="resultat"></label> -->
+
+    <script>
+        // Exercice 1 :
+        // function converter(){
+        //     let val = +cel.value ;
+        //     if(val == "" || val < 0 ){
+        //         res.innerText = "Valeur negative ou null"
+        //     }else{
+        //         let fah = (val * 9/5)  + 32 ;
+        //         let kel = val + 273.15 ;
+        //         let etat = (val < 40)? "positive Modérée" : "élevé" ;
+        //         res.innerText = `Entrée: ${val}°C => Fahrenheit : ${fah}°F |Kelvin : ${kel}K|Etat: ${etat}`
+        //     }
+        // }
+        // Exercice 2 :
+        // function jouer(choix){
+        //     let t = ["ciseau" , "feuille" , "pierre"];
+        //     let mon = Math.floor(Math.random() * 3);
+        //     let compChoice = t[mon] ;
+        //     if(compChoice === choix){
+        //         ch.innerHTML = "" ;
+        //         res.innerText = "SAME" ;
+        //     }else if(compChoice === "ciseau" && choix === "feuille"){
+        //         ch.innerHTML = '<img src="images/ciseau.jpg"  width="100px" height="100px" alt="">'
+        //         res.innerText = "YOU LOOSE" ;
+        //     }else if(compChoice === "ciseau" && choix === "pierre"){
+        //         ch.innerHTML = '<img src="images/ciseau.jpg"  width="100px" height="100px" alt="">'
+        //         res.innerText = "YOU WON" ;
+        //     }else if(compChoice === "feuille" && choix === "pierre"){
+        //         ch.innerHTML = '<img src="images/feuile.jpg"  width="100px" height="100px" alt="">'
+        //         res.innerText = "YOU LOOSE" ;
+        //     }else if(compChoice === "feuille" && choix === "ciseau"){
+        //         ch.innerHTML = '<img src="images/feuile.jpg"  width="100px" height="100px" alt="">'
+        //         res.innerText = "YOU WON" ;
+        //     }else if(compChoice === "pierre" && choix === "feuille"){
+        //         ch.innerHTML = '<img src="images/pierre.jpg"  width="100px" height="100px" alt="">'
+        //         res.innerText = "YOU WON" ;
+        //     }else if(compChoice === "pierre" && choix === "ciseau"){
+        //         ch.innerHTML = '<img src="images/pierre.jpg"  width="100px" height="100px" alt="">'
+        //         res.innerText = "YOU LOOSE" ;
+        //     }
+        // }
+        //Exercice 3: 
+        // let n = +prompt("Donner un nombre entier");
+        // let liste = []
+        // let a = 0; 
+        // let b = 1;
+        // let c = a + b ;
+        // if(n < 2){
+        //     alert("Valeure invalid") ;
+        // }else{
+        //     for(let i = 0 ; c <= n ; i++){
+        //         c = a + b
+        //         console.log(c) 
+        //         a = b ;
+        //         b = c;
+        //     }
+        // }
+        // Exercice 4 :
+        // AVEC ELSE IF 
+        // function calculer(){
+        //     let m1 = +n1.value ;
+        //     let m2 = +n2.value ;
+        //     if(op.value == "+"){
+        //         resultat.innerHTML = m1 + m2 ;
+        //     }else if(op.value == "-"){
+        //         resultat.innerHTML = m1 - m2 ;
+        //     }else if(op.value == "*"){
+        //         resultat.innerHTML = m1 * m2 ;
+        //     }else if(op.value == "/"){
+        //         if(m2 == 0){
+        //             resultat.innerHTML = "Erreur division sur 0"
+        //         }else{
+        //             resultat.innerHTML = m1 / m2 ;
+        //         }
+                
+        //     }else if(op.value == "%"){
+        //         resultat.innerHTML = m1 % m2 ;
+        //     }
+
+        // } 
+        // AVEC SWITCH
+        // function calculer(){
+        //     let m1 = +n1.value ;
+        //     let m2 = +n2.value ;
+        //     let opp = op.value ;
+        //     switch(opp){
+        //         case "+" : resultat.innerHTML = m1 + m2 ;
+        //                     break ;
+        //         case "-" : resultat.innerHTML = m1 - m2 ;
+        //                     break ;
+        //         case "*" : resultat.innerHTML = m1 * m2 ;
+        //                     break ;
+        //         case "%" : resultat.innerHTML = m1 % m2 ;
+        //                     break ;
+        //         case "/" : if(m2 == 0){resultat.innerHTML = "Erreur division sur 0"}else{
+        //             resultat.innerHTML = m1 / m2 ;
+        //         } 
+        //                     break ;
+        //     }
+        // }
+        // Exercice 5 :
+        // let nombre = +prompt("Donner un nombre :") 
+    
+        // if(isNaN(nombre) || nombre == "" || nombre == null){
+        //     alert("donner un nombre !!")
+        // }else{
+        //     console.log(2)
+        // for(let i = 2;i < nombre ;i++){
+        //     let comp = i - 2 ;
+        //     for(let j = 2 ; j < i ;j++){
+        //         if((i % j) == 0){
+        //             j = i
+        //             continue
+        //         }else{
+        //             comp -=1 ;
+        //         }
+        //         if(comp == 0){
+        //             console.log(i) ;
+        //         }    
+        // }
+        // }}
+        // Autre method
+            // let n = parseInt(prompt("Entrez n :"));
+            // let premiers = [];
+
+            // for (let i = 2; i <= n; i++) {
+            // let estPremier = true;
+            // for (let j = 2; j <= Math.sqrt(i); j++) {
+            //     if (i % j === 0) { estPremier = false; break; }
+            // }
+            // if (estPremier) premiers.push(i);
+            // }
+
+            // console.log("Nombres premiers : " + premiers.join(", "));
+        
+
+    </script>
+</body>
+</html>
