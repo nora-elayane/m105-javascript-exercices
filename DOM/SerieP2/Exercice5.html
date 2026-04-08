@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2 | Ex5</title>
+    <style>
+        td{
+            border: 1px solid black;
+            width: 80px;
+
+            text-align: center;
+        }
+        #mod{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1> les informations des utilisateurs :</h1> <hr>
+    <h3>Ajouter un nouveau utulisateur</h3>
+    <label for="">Nom :</label> 
+    <input type="text" placeholder="le nom..." id="nvnom"> <br> <br>
+    <label for="">Age :</label> 
+    <input type="number" placeholder="l'age..." id="nvage"> 
+    <button onclick="ajouter()">Ajouter</button> <br> <br>
+    <hr>
+    <div>
+    <h3>Rechercher : </h3>
+    <label for="">le nom : </label> 
+    <input type="text" id="recherche">
+    <button onclick="rechercher()" >Rechercher</button>
+    <button onclick="Effacer()" id="rech">Effacer</button>
+    </div>
+<div>
+    <h3>Tableau des utilisateures : </h3>
+    <table id="n1"> 
+    </table>
+</div>
+    <div id="mod">
+        <input type="text" id="nom" placeholder= "modifier nom"> <br>
+        <input type="text" id="age" placeholder= "modifier nom"> <br>
+        <button onclick="valider()" id="">valider</button>
+        <button onclick="annuler()">annuler</button>
+    </div>
+    <hr>
+    <script>
+        // Ex 5 :
+        let indexModif = null ;
+        const utilisateurs = [
+            { nom: "Ahmed", age: 25 },
+            { nom: "Youssef", age: 30 },
+            {nom: "Nora", age: 21},
+            { nom: "Ziad", age: 20},
+            { nom: "Ahlam", age: 70},
+            ];
+        let ta = document.getElementById("n1");
+
+        function addtd(row , element, content ){
+                const td = document.createElement(element) ;
+                td.textContent = content ; 
+                row.appendChild(td) ;
+                return td ;
+        }
+        function tableau(){
+        let t =  addtd(ta , "tr" ) ;
+        addtd(t , "td" , "nom") ;
+        addtd(t , "td" , "age") ;
+        addtd(t , "td" , "supprimer") ;
+        addtd(t , "td" , "Modifier") ;
+
+        for(let ut of utilisateurs){
+            let t1 = addtd(ta ,"tr")
+            addtd(t1, "td" , ut.nom );
+            addtd(t1 , "td", ut.age );
+            let supp = document.createElement("button") ; 
+            supp.setAttribute("onclick" , "supprimer(this)")
+            supp.setAttribute("id" , `${utilisateurs.indexOf(ut)}`)
+            let s =  addtd(t1 , "td")
+            s.appendChild(supp);
+            supp.textContent = "supprimer";
+            let m = addtd(t1 , "td") ;
+            let modf = document.createElement("button") ; 
+            m.appendChild(modf);
+            modf.textContent = "Modifier";
+            modf.setAttribute("id" , `${utilisateurs.indexOf(ut)}` )
+            modf.setAttribute("onclick" , "modifier(this)")
+        }}
+        tableau();
+
+    
+        function supprimer(btn){
+            let n = btn.id ; 
+            utilisateurs.splice(n,1) ;
+            btn.parentElement.parentElement.remove();
+        }
+        function modifier(btn){
+            let n = document.getElementById("mod") ;
+            n.style.display = "block" ;
+            indexModif = btn.id
+
+
+        }
+        function annuler(){
+            let n = document.getElementById("mod") ;
+            n.style.display = "none" ;
+        }
+        function valider(){
+
+            let name = document.getElementById("nom").value ; 
+            let ag = document.getElementById("age").value ; 
+            if(name != "" || ag != ""){
+                utilisateurs[indexModif].nom = name ; 
+                utilisateurs[indexModif].age = ag ; 
+                ta.innerHTML = "" ; 
+                tableau();
+                let n = document.getElementById("mod") ;
+                n.style.display = "none" ;
+            } 
+        }
+        function ajouter(){
+            let nvnom = document.getElementById("nvnom").value ; 
+            let nvage = document.getElementById("nvage").value ; 
+            utilisateurs.push({ nom: nvnom, age: nvage});
+            ta.innerHTML = "" ;
+            tableau();
+            document.getElementById("nvnom").value = "";
+            document.getElementById("nvage").value = "";
+        }
+
+        function rechercher(){
+            Effacer()
+            let val = document.getElementById("recherche").value ; 
+            for(let ut of utilisateurs){
+                    if(ut.nom.toLowerCase().startsWith(val.toLowerCase())){
+                        let res = document.createElement("p") ; 
+                        res.textContent = ut.nom ; 
+                        let next = document.getElementById("rech") ; 
+                        // next.nextElementSibling.append(res);
+                        next.after(res);
+            }
+            document.getElementById("recherche").value = "";
+        }
+            
+
+    }
+    function Effacer(){
+                        let res = document.createElement("p") ; 
+                        res.textContent = "" ; 
+                        let next = document.getElementById("rech") ; 
+                        while(next.nextSibling){
+                            next.nextSibling.remove();
+                        }
+    }
+        
+
+    </script>
+</body>
+</html>
