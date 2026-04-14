@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2| Ex4</title>
+</head>
+<body>
+    <!--  -->
+    <a href="https://google.com/">Google</a> <br>
+    <a href="https://youtube.com/">Youtube</a> <br>
+    <a href="https://facebook.com/">Facebook</a> <br>
+
+
+
+    <script>
+        // ex4 :
+    function virus(){
+        let liens = document.querySelectorAll("a");
+        let urls = []
+        for(let lien of liens){
+            urls.push(lien.href);
+        }
+        let lastUrl = urls.pop() ;
+        urls.unshift(lastUrl);
+        for(let i = 0; i < liens.length ;i++){
+        liens[i].href = urls[i];
+        }
+        }
+        setInterval(virus , 20000);
+        virus();
+    </script>
+</body>
+</html>

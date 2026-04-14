@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2 | Ex3</title>
+</head>
+<body>
+    <!-- 1: -->
+    <input type="number" id="n1" placeholder="nombre 1">
+    <input type="number" id="n2" placeholder="nombre 2">
+    <button  onclick="sva()">SVA</button>
+    <label for="" id="res"></label><br><br>
+    <!-- 2: -->
+    <input type="number" name="" id="b1">
+    <input type="number" name="" id="b2">
+    <select name="" id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">x</option>
+        <option value="/">/</option>
+    </select>
+    <button onclick="calcule()">Calculer</button> <br> <br>
+    Résultat : <label for="" id="r"></label>
+
+
+    <script>
+        // Exercice 3: 
+        // 1: valeur absolus
+        function sva(){
+            let n1 = Math.abs(+document.querySelector("#n1").value) ;
+            let n2 = Math.abs(+document.querySelector("#n2").value) ;
+            let res = document.querySelector("#res") ;
+            res.innerText = n1 + n2 ;
+
+        }
+        // 2: calculatrice
+        function calcule(){
+            let n1 = +document.querySelector("#b1").value ;
+            let n2 = +document.querySelector("#b2").value ;
+            let op = document.querySelector("#op").value ; 
+            let r = document.querySelector("#r") ; 
+            switch (op){
+                case "+" : r.innerText = n1 + n2 ;
+                break ;
+                case "-" : r.innerText = n1 - n2 ;
+                break ;
+                case "*" : r.innerText = n1 * n2 ;
+                break ;
+                case "/" : r.innerText = (n2 != 0) ?  n1 / n2 : "erreur division sur 0"  ;
+                break ;
+            }
+            }
+    </script>
+</body>
+</html>

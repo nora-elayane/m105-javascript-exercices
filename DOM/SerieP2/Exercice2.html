@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2 | Ex2</title>
+</head>
+<body>
+    <!-- 1 : -->
+<input type="number" id="n1" placeholder="nombre 1 : ">+
+<input type="number" id="n2" placeholder="nombre 2 : ">=
+<label for="" id="res"></label>
+<button onclick="calculer()">Calculer</button> <br> <br>
+<!-- 2 :  -->
+<input type="text" id="name"placeholder="nom et prenom">
+<button onclick="separer()">Separer</button>
+<label for="" id="nom"></label>
+<label for="" id="prenom"></label>
+    <script>
+        // Exercice 2 :
+        // 1:
+        function calculer(){
+            let nb1 = +document.getElementById("n1").value ; 
+            let nb2 = +document.getElementById("n2").value ; 
+            let res = document.getElementById("res") ; 
+            res.innerText = (nb1 + nb2) ;
+            document.getElementById("n1").value = "" ; 
+            document.getElementById("n2").value = "" ;
+        } 
+        // 2: 
+        function separer(){
+            let full = document.getElementById("name").value ; 
+            let l1 = document.getElementById("nom") ;
+            let l2 = document.getElementById("prenom") ;
+            let index = full.indexOf(" ");
+            let nom = full.slice(0, index);
+            let prenom = full.slice(index+1);
+            l1.innerText = "Nom : " + nom ;
+            l2.innerText = "prenom: " + prenom ;
+        }
+    </script>
+</body>
+</html>

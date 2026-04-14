@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Serie 2|Ex7</title>
+</head>
+<body>
+    <h1 id="tm"></h1>
+<div id="presence">
+<p id="present"></p>
+</div>
+<div id="montre"></div>
+<button id="marquer" onclick="marquer()" style="display: none;">Présent</button>
+</body>
+<script>
+    let t ;
+    let p = document.getElementById("present") ; 
+    let tab = []
+    function temp(){
+    let time = new Date() ; 
+    let hour = time.getHours() ;
+    let min = time.getMinutes() ;
+    let sec = time.getSeconds();
+    t = `${hour}:${min}:${sec}`;
+    let tm = document.getElementById("tm") ;
+    tm.innerHTML = t ;
+    if(sec == 0){
+        let t =  new Promise((marquer,reject)=>{
+            setTimeout(function marquer(){
+                let btn = document.getElementById("marquer");
+                btn.style.display = "block" ;
+                if(marquer){
+                    p.innerText = "Presence Bien ENregistré !"
+                    tab.push({time:"Present"})}
+            })
+            },5000)
+                    p.innerText = "" ;
+                    btn.style.display = "none" ;
+
+
+        }
+        
+    }
+
+
+setInterval(temp,1000)
+    
+
+</script>
+</html>

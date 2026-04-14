@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="hour" placeholder="00:00:00">
+    <!-- <input type="time" name="hour" id="hour">  -->
+    <button onclick="salutation()">salutation</button>
+    <button onclick="jour()">Jour de la semaine</button>
+    <script>
+        // Exercice 3 : 
+        let msg = document.createElement("h2") ;
+        let msg2 = document.createElement("h2") ;
+        document.body.appendChild(msg2)
+        msg.textContent =""
+        document.body.appendChild(msg)
+        function salutation(){
+            // let hour =parseInt(document.getElementById("hour").value) ;
+            let hour =document.getElementById("hour").value ;
+            let rej = /^\d{2}:\d{2}:\d{2}$/
+            if(rej.test(hour)){
+                let n =  hour.split(":")
+                if(n[0] >=24 || n[1] >=60 || n[2] >=60){
+                    throw "ERREUR"
+                }else{
+                        if( 11>= n[0] && n[0] >= 5){
+                        msg.textContent ="Bonjour !"
+                        }else if(13 >= n[0] && n[0] > 11){
+                        msg.textContent ="Bon apres midi !"
+                        }else if(20 >= n[0] && n[0] > 13){
+                        msg.textContent ="Bon  Soiré !"
+                        }else if(24 >= n[0] && n[0] > 20){
+                        msg.textContent ="Bonne nuit !"
+                                                    }
+                    }
+                
+                            }
+                    
+        }
+        function jour(){
+            let j = new Date();
+            j = j.getDay() ;
+            let t = ["dimanche" ,"lundi" , "mardi" , "mercredi" , "jeudi" , "vendredi" , "samedi" ]
+            msg2.textContent = `le nom de ce jour est ${t[j]}`
+        }
+    </script>
+</body>
+</html>

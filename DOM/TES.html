@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 4</title>
+    <style>
+        table { border-collapse: collapse; margin-bottom: 10px; }
+        td { border: 1px solid black; padding: 15px; min-width: 30px; text-align: center; }
+        h3 { color: #333; }
+    </style>
+</head>
+<body>
+
+    <h3>1er Tableau (Max 6 cellules)</h3>
+    <table>
+        <tr id="t1"></tr>
+    </table>
+    <button onclick="remplirT1()">Remplir T1</button>
+
+    <hr>
+
+    <h3>2e Tableau (Ajout dynamique)</h3>
+    <table id="table2">
+        <tr id="t2"></tr>
+    </table>
+    <button onclick="ajouterCelluleT2()">Ajouter à T2</button>
+
+    <script>
+        // --- الجزء الأول ---
+        let comp = 0; 
+        function remplirT1() {
+            if (comp < 6) {
+                let n;
+                do {
+                    n = prompt("Donner un nombre pour T1 :");
+                } while (n === null || n === "" || isNaN(n));
+
+                let tr = document.getElementById("t1");
+                let td = document.createElement("td");
+                td.textContent = n;
+                tr.appendChild(td);
+                comp++;
+            } else {
+                alert("Le premier tableau est plein (6 cellules) !");
+            }
+        }
+
+        // --- الجزء الثاني ---
+        function ajouterCelluleT2() {
+            let n;
+            // نطلب الرقم من المستخدم
+            do {
+                n = prompt("Donner un nombre pour T2 :");
+            } while (n === null || n === "" || isNaN(n));
+
+            // نصل إلى السطر في الجدول الثاني
+            let tr2 = document.getElementById("t2");
+            
+            // ننشئ خلية جديدة ونضيفها
+            let newTd = document.createElement("td");
+            newTd.textContent = n;
+            tr2.appendChild(newTd);
+        }
+    </script>
+</body>
+</html>

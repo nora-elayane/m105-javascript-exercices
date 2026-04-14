@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 4</title>
+    <style>
+        td{
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<table>
+    <tr id="t1">
+    </tr>
+</table>
+<button onclick="remplire()">remplir</button>
+
+<body>
+    <script>
+        // Exercice 4 : 
+        let comp = 0 ; 
+        function remplire(){
+            if(comp < 6){
+            let n ;
+            do{
+                n =  prompt("donner un nombre") 
+            }
+            while(n === null || n === "" || isNaN(n)) ;
+            let t = document.getElementById("t1") ;
+            c = document.createElement("td");
+            c.textContent = n ;
+            t.appendChild(c);
+            comp++
+            }
+            else{
+                return
+            }
+
+        }
+
+    </script>
+</body>
+</html>

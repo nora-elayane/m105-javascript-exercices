@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2-EX1</title>
+</head>
+<body>
+    <input type="text" id="add"> 
+    <button onclick="ajouter()">Ajouter</button>
+    <ul id="ul"></ul>
+    <script>
+        function ajouter(){
+            let val =document.getElementById("add").value ;
+            let ul = document.getElementById("ul") ; 
+            if(val.trim() !== ""){
+                let li = document.createElement("li");
+                li.textContent = val ; 
+                ul.appendChild(li);
+                document.getElementById("add").value = "" ;
+            }else{
+                throw new Error("Erreur");
+                
+            }
+        }
+        
+    </script>
+</body>
+</html>

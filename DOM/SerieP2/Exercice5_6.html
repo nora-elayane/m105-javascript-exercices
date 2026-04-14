@@ -8,6 +8,7 @@
         td{
             border: 1px solid black;
             width: 80px;
+            /* background-color: rgb(167, 154, 154); */
 
             text-align: center;
         }
@@ -85,6 +86,11 @@
             modf.textContent = "Modifier";
             modf.setAttribute("id" , `${utilisateurs.indexOf(ut)}` )
             modf.setAttribute("onclick" , "modifier(this)")
+            let r = Math.floor(Math.random() * 255) ;
+            let g = Math.floor(Math.random() * 255) ;
+            let b = Math.floor(Math.random() * 255) ;
+
+            t1.style.background ="rgb(" + r + "," + g + "," + b + ")";
         }}
         tableau();
 

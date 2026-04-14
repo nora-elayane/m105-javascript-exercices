@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { 
+            background-color: #fff9f9; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 20px; 
+            padding-top: 50px;
+        }
+        img { width: 200px; height: auto; border-radius: 10px; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Exercice 2 : 
+        let b1 = document.createElement("button") ;
+        b1.textContent =" Interrupteur unique" ;
+        b1.setAttribute("onclick" , "autre()")
+        document.body.appendChild(b1)
+
+        let im1 = document.createElement("img");
+        im1.setAttribute("src" , "../image/lampAlum.jpeg");
+        document.body.appendChild(im1) ;
+
+        function autre(){
+            if(im1.getAttribute("src") === "../image/lampAt.jpeg"){
+                im1.setAttribute("src" , "../image/lampAlum.jpeg");
+            }else{
+                im1.setAttribute("src" , "../image/lampAt.jpeg");
+            }
+        }
+    </script>
+</body>
+</html>

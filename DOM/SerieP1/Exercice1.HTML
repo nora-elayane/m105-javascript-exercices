@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // Exercice 1 :
+        let text = document.createElement("h2");
+        text.textContent = "Qui est In" ;
+        document.body.appendChild(text) ;
+        text.style.fontSize = "16px";
+
+        let b1 = document.createElement("button") ;
+        b1.textContent = "Change txt" ;
+        b1.setAttribute("onclick" , "inverser()") ;
+        document.body.appendChild(b1)
+
+        let b2 = document.createElement("button") ;
+        b2.textContent = "change couleur" ;
+        document.body.appendChild(b2) ;
+        b2.setAttribute("onclick" , "couleur()") ;
+
+        let b3 = document.createElement("button") ;
+        b3.textContent ="Taille +" ;
+        b3.setAttribute("onclick" , "pluss()")
+        document.body.appendChild(b3)
+
+        let b4 = document.createElement("button") ; 
+        b4.textContent = "Taille -" ; 
+        b4.setAttribute("onclick" , "moins()") ;
+        document.body.appendChild(b4) ;
+
+
+        function inverser(){
+                if(text.textContent == "Qui est In"){
+                    text.textContent = "qui est Out"
+                }else{
+                    text.textContent = "Qui est In"
+                }
+        }
+        // function couleur(){
+        //     let t = ["red" , "blue" ,"yellow" , "orange" , "pink" , "black" , "white" , "grey" , "green" , "aqua"];
+        //     let color  ;
+        //     do{
+        //      color = Math.floor(Math.random() * t.length) ;
+        //     }
+        //     while(text.style.color == t[color])
+        //     text.style.color = t[color];
+        // }
+        function couleur(){
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            text.style.color = `rgb(${r},${g},${b})`
+
+        }
+
+        // function pluss(){
+        //     let ComputedStyle = window.getComputedStyle(text) ;
+        //     let r = parseInt(ComputedStyle.fontSize) + 5 ;
+        //     console.log(r)
+        //     text.style.fontSize = `${r}px`
+        // }
+        // function moins(){
+        //     let ComputedStyle = window.getComputedStyle(text) ;
+        //     let r = parseInt(ComputedStyle.fontSize) - 5 ;
+        //     console.log(r)
+        //     text.style.fontSize = `${r}px`
+        // }
+        
+        function pluss(){
+            let size = parseInt(text.style.fontSize) ;
+            text.style.fontSize = `${size + 5}px`;
+        }
+
+        function moins(){
+            let size = parseInt(text.style.fontSize) ;
+            text.style.fontSize = `${size - 5}px`;
+        }
+
+    </script>
+</body>
+</html>

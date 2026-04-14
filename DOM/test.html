@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style1{
+            background-color: rgb(77, 99, 241);
+            width: 200px;
+            padding: 5px ;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            list-style: none;
+            color: white;
+            text-align: center;
+
+        }
+        .style2{
+            background-color: rgb(40, 211, 92);
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercice  1:</h1>
+
+        <fieldset>
+            <input type="text"  id="elem" id="elem" placeholder="nom du ville">
+            <button onclick="ajouter()">Ajouter</button>
+            <button onclick="Supprimer()">Supprimer</button>
+
+        </fieldset>
+    <ul id="liste">
+    </ul>
+    
+    <script>
+        function ajouter(){
+            let nom = document.getElementById("elem").value;
+            let li = document.createElement('li');
+            li.textContent =nom
+            li.className = "style1"
+            li.setAttribute("onclick", "this.classList.toggle('style2') " )
+            let liste = document.getElementById("liste")  ;
+            liste.appendChild(li) ;
+        }
+
+        function Supprimer(){
+            document.querySelectorAll(".style2").forEach(el => el.remove());
+        }
+    </script>
+    
+</body>
+</html>
