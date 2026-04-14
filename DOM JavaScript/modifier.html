@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier</title>
+</head>
+<body>
+    <p id="p">Bonjour tout le monde</p>
+    <button onclick="changer()">Changer texte</button>
+    <button onclick="reinitialiser()">Réinitialiser</button> 
+
+    <script>
+        let p = document.getElementById("p") ; 
+        function changer(){
+            p.textContent = "Bienvenue au CMC BMK" ;
+        }
+        function reinitialiser(){
+            p.textContent = "Bonjour tout le monde" ;
+        }
+    
+    </script>
+</body>
+</html>
