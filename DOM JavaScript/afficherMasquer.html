@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afficher / Masquer</title>
+</head>
+<body>
+    <button id="butt" onclick="changer()">Masquer</button> <br> <br>
+    <img src="coff.png"  id="im" width="400px">
+    <script>
+        function changer(){
+            let pic = document.getElementById("im") ;
+            let sr = pic.getAttribute("src") ;
+            let text = document.getElementById("butt") ;
+            if(sr){
+                let t = pic.setAttribute("src" , "") ;
+                text.textContent = "Afficher" ;
+            }else{
+                let t = pic.setAttribute("src" , "coff.png") ;
+                text.textContent = "Masquer" ;
+            }
+        }
+    </script>
+</body>
+</html>
