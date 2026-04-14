@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="couleur()">Couleur aléatoire</button>
+    <button onclick="plus()">Taille +</button>
+    <button onclick="moins()">Taille -</button>
+    <h1 id="titre">Couleur et Taille de texte</h1>
+</body>
+    <script>
+        let h = document.getElementById("titre") ; 
+        function couleur(){
+            let r = Math.floor(Math.random() * 256) ; 
+            let g = Math.floor(Math.random() * 256) ; 
+            let b = Math.floor(Math.random() * 256) ; 
+            let color = `rgb(${r},${g},${b})` ;
+            // console.log(color)
+            h.style.color = color ; 
+        }
+        function plus(){
+            let size = window.getComputedStyle(h);
+            let s = parseInt(size.fontSize);
+            h.style.fontSize = s + 5 + "px" ;
+        }
+        function moins(){
+            let size = window.getComputedStyle(h);
+            let s = parseInt(size.fontSize);
+            h.style.fontSize = s - 5 + "px" ;
+        }
+
+    </script>
+</html>
