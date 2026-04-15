@@ -27,7 +27,7 @@
             do{
                 n =  prompt("donner un nombre") 
             }
-            while(n === null || n === "" || isNaN(n)) ;
+            while(isNaN(n) || n === "" || n === null) ;
             let t = document.getElementById("t1") ;
             c = document.createElement("td");
             c.textContent = n ;

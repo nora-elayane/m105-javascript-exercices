@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste dynamique avec suppression</title>
+    
+</head>
+<body>
+    <input type="text" placeholder="Ajouter une tache" id="tach">
+    <button onclick="ajouter()">Ajouter</button>
+    <ul id="liste">
+
+    </ul>
+<script>
+    function ajouter(){
+        let tache = document.getElementById("tach").value ;
+    if(tache == "" ){
+        alert("Veuillez saisir une tâche") ;
+    }else{
+        let li = document.createElement("li");
+        li.innerHTML = tache + '<button onclick="supprimer(this)" style="background-color:orange ; color:white">X</button>' ;
+            let ul = document.getElementById("liste") ;
+            ul.append(li) ;
+            document.getElementById("tach").value = "" ;  
+    }}
+    function supprimer(elem){
+        elem.parentElement.remove();
+    }
+</script>
+</body>
+</html>
