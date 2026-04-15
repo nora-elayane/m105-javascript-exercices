@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séparation Nom / Prénom</title>
+</head>
+<body>
+    <label for="">Nom Complet : </label>
+    <input type="text" placeholder="nom et prenom " id="nC"> 
+    <button onclick="separer()">Separer</button> <br>
+    <script>
+        function separer(){
+            let nC = document.getElementById("nC").value ;
+            let index = nC.indexOf(" ") ;
+            let nom = nC.slice(0 , index) ;
+            let prenom = nC.slice(index) ;
+            let label1 = document.createElement("label") ;
+            label1.innerHTML = "le nom est : " + nom  + " <br>";
+            document.querySelector("body").append(label1)
+            let label2 = document.createElement("label") ;
+            label2.innerHTML = "le prenom est : " + prenom +" <br>" ;
+            document.querySelector("body").append(label2)
+            document.getElementById("nC").innerHTML = "" ;
+        }
+    </script>
+</body>
+</html>
