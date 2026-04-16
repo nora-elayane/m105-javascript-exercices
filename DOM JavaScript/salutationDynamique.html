@@ -9,12 +9,33 @@
     <label for="">Heure actuel : </label>
     <input type="number" name="heure" id="heure"> 
     <button onclick="salutation()">Salutation</button>
+    <button onclick="jour()">Jour de la semaine</button>
     <script>
+        function salutation(){
         let heure = +document.getElementById("heure").value ; 
-        let p = document.createElement("p") ;
-        switch(heure){
-            case (6<= heure<= 11) : 
+        let p = document.createElement("p") ;   
+        switch(true){
+            case (6<= heure && heure <= 11) : p.innerText = "🌅 Bonjour !" ;
+            break ; 
+            case (12<= heure && heure <= 17) : p.innerText = "☀️ Bon après-midi !" ;
+            break ; 
+            case (18<= heure && heure <= 21) : p.innerText = "🌆 Bonne soirée !" ;
+            break ; 
+            case (22<= heure || heure <= 5) : p.innerText = "🌙 Bonne nuit !" ;
+            break ; 
+            default : p.innerText = "none of them" ; 
         }
+        let body = document.querySelector("body").append(p)
+        }
+        function jour(){
+            let j = ["Dimanche" , "Lundi" , "Mardi" , "Mercredi" , "Jeudi" , "Vendredi" , "Samedi"] ; 
+            let date = new Date() ;
+        let p = document.createElement("p") ;   
+        p.innerText ="le jour de la semaine est : " + j[date.getDay()] ;
+        let body = document.querySelector("body").append(p)
+
+        }
+        
     </script>
 </body>
 </html>
