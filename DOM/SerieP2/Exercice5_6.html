@@ -63,7 +63,8 @@
                 row.appendChild(td) ;
                 return td ;
         }
-        function tableau(){
+        let i = 1 ; 
+        function tableau(utilisateurs){
         let t =  addtd(ta , "tr" ) ;
         addtd(t , "td" , "nom") ;
         addtd(t , "td" , "age") ;
@@ -84,15 +85,18 @@
             let modf = document.createElement("button") ; 
             m.appendChild(modf);
             modf.textContent = "Modifier";
+            modf.style.background =  "#9AB17A" ;
+            supp.style.background = "#F79A19"
             modf.setAttribute("id" , `${utilisateurs.indexOf(ut)}` )
-            modf.setAttribute("onclick" , "modifier(this)")
-            let r = Math.floor(Math.random() * 255) ;
-            let g = Math.floor(Math.random() * 255) ;
-            let b = Math.floor(Math.random() * 255) ;
-
-            t1.style.background ="rgb(" + r + "," + g + "," + b + ")";
+            modf.setAttribute("onclick" , "modifier(this)");
+            if(+i % 2 == 0){
+                t1.style.background = "#E4DFB5" ;
+            }else{
+                t1.style.background = "#FBE8CE" ;
+            }
+            i++ ;
         }}
-        tableau();
+        tableau(utilisateurs);
 
     
         function supprimer(btn){
@@ -101,6 +105,10 @@
             btn.parentElement.parentElement.remove();
         }
         function modifier(btn){
+            let nom = btn.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent  ;
+            let age = btn.parentElement.previousElementSibling.previousElementSibling.textContent  ;
+            document.getElementById("nom").value = nom ;
+            document.getElementById("age").value = age ;
             let n = document.getElementById("mod") ;
             n.style.display = "block" ;
             indexModif = btn.id
@@ -119,7 +127,7 @@
                 utilisateurs[indexModif].nom = name ; 
                 utilisateurs[indexModif].age = ag ; 
                 ta.innerHTML = "" ; 
-                tableau();
+                tableau(utilisateurs);
                 let n = document.getElementById("mod") ;
                 n.style.display = "none" ;
             } 
@@ -129,34 +137,49 @@
             let nvage = document.getElementById("nvage").value ; 
             utilisateurs.push({ nom: nvnom, age: nvage});
             ta.innerHTML = "" ;
-            tableau();
+            tableau(utilisateurs);
             document.getElementById("nvnom").value = "";
             document.getElementById("nvage").value = "";
         }
 
-        function rechercher(){
-            Effacer()
-            let val = document.getElementById("recherche").value ; 
+    //     function rechercher(){
+    //         Effacer()
+    //         let val = document.getElementById("recherche").value ; 
+    //         for(let ut of utilisateurs){
+    //                 if(ut.nom.toLowerCase().startsWith(val.toLowerCase())){
+    //                     let res = document.createElement("p") ; 
+    //                     res.textContent = ut.nom ; 
+    //                     let next = document.getElementById("rech") ; 
+    //                     // next.nextElementSibling.append(res);
+    //                     next.after(res);
+    //         }
+    //         document.getElementById("recherche").value = "";
+    //     }
+    // }
+    function rechercher(){
+        let newt = [];
+        let val = document.getElementById("recherche").value ; 
             for(let ut of utilisateurs){
                     if(ut.nom.toLowerCase().startsWith(val.toLowerCase())){
-                        let res = document.createElement("p") ; 
-                        res.textContent = ut.nom ; 
-                        let next = document.getElementById("rech") ; 
-                        // next.nextElementSibling.append(res);
-                        next.after(res);
-            }
-            document.getElementById("recherche").value = "";
-        }
-            
+                        ta.innerHTML = "" ;
+                        newt.push(ut);
+                        tableau(newt)
 
+
+    } 
+}
     }
+
     function Effacer(){
-                        let res = document.createElement("p") ; 
-                        res.textContent = "" ; 
-                        let next = document.getElementById("rech") ; 
-                        while(next.nextSibling){
-                            next.nextSibling.remove();
-                        }
+        let res = document.createElement("p") ; 
+        res.textContent = "" ; 
+        let next = document.getElementById("rech") ; 
+        ta.innerHTML = ""
+        tableau(utilisateurs);
+        document.getElementById("recherche").value = "" ; 
+        
+                        
+
     }
         
 
