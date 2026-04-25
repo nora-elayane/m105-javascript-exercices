@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h3{
+            color: rgb(46, 137, 107);
+        }
+        p{
+            color: burlywood;
+        }
+        div{
+            background-color: rgb(92, 92, 70);
+            border-radius: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="inp" > 
+    <script>
+        let i = 1 ; 
+        function addPost(){
+          let post = document.createElement("div") ; 
+          let parent = document.querySelector("body") ;
+           parent.append(post);
+          let title = document.createElement("h3") ; 
+          title.innerText = input.value ; 
+          post.append(title) ; 
+          let comments = document.createElement("div") ;
+          post.append(comments);
+          let inputV  = document.createElement("input") ; 
+          post.append(inputV) ;
+          inputV.setAttribute("id", `${i}`) ;
+          i++ 
+          inputV.addEventListener("keydown" ,(event)=>{if(event.code == "Enter")addComment()})
+          
+           function addComment(){
+           let p = document.createElement("p") ;
+           p.innerText = inputV.value ; 
+           comments.append(p) ;
+       }
+         }
+       let input =  document.querySelector("#inp") ;
+       input.addEventListener("keydown" ,(event)=>{if(event.code == "Enter")addPost()}) ; 
+      
+    </script>
+</body>
+</html>
