@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events 2</title>
+    <style>
+        .selectioné{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h3>Liste des etudiants : </h3>
+    <table border>
+        <thead>
+            <th>Code</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Semestre</th>
+            <th>Filiére</th>
+        </thead>
+        <tbody id="main">
+
+        </tbody>
+    </table>
+    <button onclick="ajouter()">Ajouter</button> 
+    <button onclick="supprimer()">Supprimer</button> 
+    <div id="ajout" style="display: none;">
+        <input type="number" required placeholder="code" id="code" >
+        <input type="text" required placeholder="nom" id="nom">
+        <input type="text" required placeholder="Prenom" id="prenom">
+        <input type="text" required placeholder="semestre" id="semestre">
+        <input type="text" required placeholder="filliere" id="filliere">
+        <button onclick="add()">Ajouter</button>
+        <button onclick="annuler()">Annuler</button>
+    </div>
+   <script>
+      let etudiants = [
+        {code:3 , nom : "naciri" , prenom : "hamza" , semestre : "S6" , filliere : "mmath"},
+         {code:2 , nom : "safir" , prenom : "meryem" , semestre : "S2" , filliere : "info"},
+      ] ;
+      function affichage(){
+        let parent = document.querySelector("#main") ; 
+        parent.innerHTML = "" ;
+        for(let etudiant of etudiants){
+            let tr = document.createElement("tr") ;
+            tr.setAttribute("id" , etudiant.code )
+            parent.append(tr) ; 
+            let td1 = document.createElement("td") ; 
+            td1.innerText = etudiant.code ;
+            tr.append(td1) ;
+            let td2 = document.createElement("td") ; 
+            td2.innerText = etudiant.nom ;
+            tr.append(td2) ;
+            let td3 = document.createElement("td") ; 
+            td3.innerText = etudiant.prenom ;
+            tr.append(td3) ;
+            let td4 = document.createElement("td") ; 
+            td4.innerText = etudiant.semestre ;
+            tr.append(td4) ;
+            let td5 = document.createElement("td") ; 
+            td5.innerText = etudiant.filliere ;
+            tr.append(td5) ;
+            tr.addEventListener("click" , clas) ;
+            function clas(){
+                tr.classList.toggle("selectioné")
+            }
+        }
+      }
+      affichage() ;
+      function ajouter(){
+        let div = document.querySelector("#ajout") ; 
+        div.style.display = "" ; 
+      }
+      function annuler(){
+        let div = document.querySelector("#ajout") ; 
+        div.style.display = "none" ;
+        document.getElementById("code").value = "" ;
+        document.getElementById("nom").value = "" ;
+        document.getElementById("prenom").value = "";
+        document.getElementById("semestre").value = "" ;
+        document.getElementById("filliere").value= "" ;
+      }
+      function add(){
+        let codeAj = document.getElementById("code").value ; 
+        let nomAj = document.getElementById("nom").value  ;
+        let prenomAj = document.getElementById("prenom").value ;
+        let semestreAj = document.getElementById("semestre").value ; 
+        let filliereAj =document.getElementById("filliere").value ;
+        let etudiant = {code:codeAj , nom : nomAj , prenom : prenomAj , semestre : semestreAj , filliere : filliereAj} ;
+        etudiants.push(etudiant);
+        affichage()
+        annuler() ;
+        
+      }
+      function supprimer(){
+        let elements = document.querySelectorAll("tr") ; 
+        for(let elem of elements){
+            if(elem.classList.contains("selectioné")){
+            elem.remove();
+            let index = etudiants.indexOf(elem) ;
+            etudiants.splice( index, 1) ; 
+        }
+        }
+         affichage()  
+      }
+      
+   </script>
+</body>
+</html>
