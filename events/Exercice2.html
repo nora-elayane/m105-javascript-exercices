@@ -9,7 +9,7 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
         h3{
-            color: rgb(46, 137, 107);
+            color: rgb(255, 90, 40);
         }
         p{
             color: burlywood;
@@ -18,11 +18,12 @@
             background-color: rgb(92, 92, 70);
             border-radius: 10px;
             padding: 5px;
+            margin: 3px;
         }
     </style>
 </head>
 <body>
-    <input type="text" id="inp" > 
+    <input type="text" id="inp" placeholder="add post"> 
     <script>
         let i = 1 ; 
         function addPost(){
@@ -31,12 +32,14 @@
            parent.append(post);
           let title = document.createElement("h3") ; 
           title.innerText = input.value ; 
+          input.value = "" ;
           post.append(title) ; 
           let comments = document.createElement("div") ;
           post.append(comments);
           let inputV  = document.createElement("input") ; 
           post.append(inputV) ;
           inputV.setAttribute("id", `${i}`) ;
+          inputV.setAttribute("placeholder" , "add text") ;
           i++ 
           inputV.addEventListener("keydown" ,(event)=>{if(event.code == "Enter")addComment()})
           
@@ -44,6 +47,7 @@
            let p = document.createElement("p") ;
            p.innerText = inputV.value ; 
            comments.append(p) ;
+           inputV.value = ""
        }
          }
        let input =  document.querySelector("#inp") ;
