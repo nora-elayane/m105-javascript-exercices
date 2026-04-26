@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="zone" style="width:300px;height:200px;background:#eee">
+</div>
+<p id="info"></p>
+<input type="text" id="champ" placeholder="Tape ici...">
+<p id="keyInfo"></p>
+    <script>
+    let info = document.getElementById("info");
+	let zone = document.getElementById("zone");
+    zone.addEventListener("mousemove" , function(event){
+	info.textContent = `X: ${event.clientX} Y: ${event.clientY}`;
+        })
+
+    zone.addEventListener("mouseenter" , function(){
+        zone.style.backgroundColor = "lightblue";
+        }); 
+    zone.addEventListener("mouseleave" , function(){
+        zone.style.backgroundColor = "grey" ;
+    })
+    zone.addEventListener("contextmenu" , function(event){
+        event.preventDefault()
+    })
+    let champ = document.getElementById("champ") ; 
+    let keyInfo = document.getElementById("keyInfo") ;
+    champ.addEventListener("keydown" , function(event){
+        keyInfo.textContent = `Touche: ${event.key} Code: ${event.code}`;
+    })
+    champ.addEventListener("keydown" , function(event){
+	if(event.ctrlKey  && event.key.toLocaleLowerCase() === "s"){
+		console.log("sauvegarde ! ");
+        event.preventDefault()}	
+})
+    </script>
+</body>
+</html>
