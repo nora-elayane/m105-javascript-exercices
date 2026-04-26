@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="inscForm">
+    <input type="text" name="nom" placeholder="Nom (min 3 car.)">
+    <input type="email" name="email">
+    <input type="password" name="mdp" placeholder="Min 6 caractères">
+    <input type="number" name="age" placeholder="Âge (16-99)">
+    <button type="submit">S'inscrire</button> 
+    </form>
+    <script>
+        let form = document.getElementById("inscForm") ; 
+	form.addEventListener("submit", function(event){
+	let nom = form["nom"].value.trim() ; 
+	if(nom.length < 3){
+		afficherErreur(nom , "min 3 car") ;
+		event.preventDefault();
+		}
+    let pass = form["mdp"].value.trim() ; 
+	if(pass.length < 6){
+		afficherErreur("Mot de passe" , "min 6 car") ;
+		event.preventDefault();
+		}
+    let age =form["age"].value.trim() ;
+    if(age < 16 || age > 99){
+        afficherErreur("Âge" , "doit être entre 16 et 99") ;
+        event.preventDefault();
+    }
+    console.log("Formulaire valide, envoi en cours...") ;
+    
+	})
+        function afficherErreur(nom , msg){
+		alert(nom + " " + msg) ; 
+		}
+    </script>
+</body>
+</html>
