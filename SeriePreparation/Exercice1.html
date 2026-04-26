@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Titre de ma page</title>
+</head>
+<body>
+    <div id="container"> 
+    <h1 class="titre">Bienvenue!</h1> 
+    <p class="para">Premier paragraphe</p>
+    <p class="para">Deuxième paragraphe</p>
+    <a href="#" id="lien">Cliquez ici</a>
+    </div>
+    <script>
+        let h1 = document.querySelector(".titre") ; 
+        console.log(h1.textContent) ;
+        let paras = document.querySelectorAll("p") ; 
+        console.log(paras.length);
+        let lien = document.querySelector("#lien") ;
+        lien.innerHTML = "Visiter OFPPT" ;
+        paras[0].classList.add("highlight") ;
+        console.log(lien.parentElement.tagName);
+    </script>
+</body>
+</html>
