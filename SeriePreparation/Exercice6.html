@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.style{text-decoration : line-through ; }
+</style>
+<body>
+    <script>
+	let parent = document.querySelector("body") ; 
+        let champ = document.createElement("input") ; 
+	champ.setAttribute("type" , "text");
+	let btn = document.createElement("button");
+	btn.textContent = "Ajouter" ; 
+	btn.setAttribute("onclick" , "ajouter()");
+	parent.append(champ);
+	parent.append(btn);
+	let ul = document.createElement("ul");
+	parent.append(ul);
+	champ.addEventListener("keydown" , function(event){
+	if(event.key === "Enter"){
+		ajouter();
+		}
+	});
+	function ajouter(){
+		if(champ.value.trim() === ""){
+			alert("il ne peut pas ajouter une tache vide");
+			return ;
+			}
+		let supp = document.createElement("button");
+		supp.setAttribute("onclick" , "supprimer(this)");
+		supp.textContent = "Supprimer"
+		let li = document.createElement("li") ; 
+		li.innerHTML = champ.value  ;
+        supp.style.display = "inline-block" ;
+        li.append(supp) ;
+		ul.append(li) ;
+		li.addEventListener("click" , function(event){
+			event.target.classList.toggle("style") ;
+			})
+		};
+	function supprimer(elem){
+        elem.parentElement.remove();
+		}
+	
+	
+    </script>
+</body>
+</html>
