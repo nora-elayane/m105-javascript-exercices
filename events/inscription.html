@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Titre de ma page</title>
+</head>
+<body>
+    <h1>Inscription</h1>
+    <form method="get" id="myform">
+        <label>Num:</label>
+        <input type="number" id="num" > <br> <br>
+        <label>Nom:</label>
+        <input type="text" id="nom" > <br> <br>
+        <label>Prenom:</label>
+        <input type="text" id="prenom" > <br> <br>
+        <label>Genre:</label>
+        <label for="fille">Fille</label>
+        <input type="radio" id="fille" name="genre" value="fille">
+        <label for="garcon">Garcon</label>
+        <input type="radio" id="garcon" name="genre" value="garcon" > <br> <br>
+        <label>Niveau scolaire:</label>
+        <select id="niveau" >
+            <option value="7eme">7eme</option>
+            <option value="8eme">8eme</option>
+            <option value="9eme">9eme</option>
+        </select> <br> <br>
+        <button type="submit">Inscrire</button>
+        <button type="reset">Annuler</button>
+
+    </form>
+<script>
+    let form = document.querySelector("#myform") ; 
+    form.addEventListener("submit" , function(event){
+        let num = document.getElementById("num").value.trim() ; 
+        if(!(num.length === 4)){
+            alert("num 4 chiffres  !!")
+            event.preventDefault() ;
+        }
+        let nom = document.getElementById("nom").value.trim() ; 
+        let prenom  = document.getElementById("prenom").value.trim() ; 
+        let rejlettres = /^[a-zA-Z]+$/ ;
+        if(!(rejlettres.test(nom)) || !(rejlettres.test(prenom))){
+            alert("nom et prénom just des lettres !!")
+            event.preventDefault() ;
+        }
+        let genre = document.querySelector("input[name='genre']:checked") ;
+        if(!genre){
+            alert("choisi un genre !!")
+            event.preventDefault() ;
+        }
+        let niveau = document.querySelector("#niveau").value ;
+        if(niveau === ""){
+            alert("choisi un niveau!!")
+            event.preventDefault() ;
+        }
+    })
+</script>
+</body>
+</html>
