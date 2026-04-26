@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<section id="sec">
+ <h2 id="titre">Mon Titre</h2>
+ <p>Paragraphe 1</p>
+ <p>Paragraphe 2</p>
+ <!-- Commentaire -->
+ <p>Paragraphe 3</p>
+ </section>
+    <script>
+        let titre = document.getElementById("titre") ; 
+	console.log(titre.parentElement.tagName) ; 
+	let children = document.getElementById("sec").children ; 
+	console.log(children.length) ;
+	console.log(titre.nextElementSibling.tagName);
+	let sect = document.getElementById("sec").childNodes ;
+	for(let i = 0 ; i< sect.length ; i++){
+		if (sect[i].nodeType === 1){
+			console.log(sect[i])}}
+	console.log(document.getElementById("sec").lastElementChild.tagName);
+    </script>
+</body>
+</html>
