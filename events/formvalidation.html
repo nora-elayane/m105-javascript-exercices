@@ -1,0 +1,187 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Titre de ma page</title>
+</head>
+<body>
+  <h1 style="text-align: center;">Formulaire d'inscription</h1>
+  
+  <form name="Inscp" action="" onsubmit="return validation()" method="post">
+    <p>
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" size="65">
+    </p>
+    
+    <p>
+      <label for="email">E-mail :</label>
+      <input type="email" id="email" name="email" size="65">
+    </p>
+    
+    <p>
+      <label for="motPasse">Mot de passe :</label>
+      <input type="password" id="motPasse" name="motPasse" size="65">
+    </p>
+    
+    <p>
+      <label for="telephone">Telephone :</label>
+      <input type="text" id="telephone" name="telephone" size="65">
+    </p>
+    
+    <p>
+      <label for="langue">Langue :</label>
+      <select id="langue" name="langue">
+        <option value="anglais">Anglais</option>
+        <option value="francais">Français</option>
+        <option value="arabe">Arabe</option>
+      </select>
+    </p>
+    
+    <p>
+      <label for="commentaire">Commentaire :</label><br>
+      <textarea id="commentaire" name="commentaire" cols="55" rows="4"></textarea>
+    </p>
+    
+    <p>
+      <input type="submit" value="Valider" name="Valider">
+      <input type="reset" value="Annuler" name="Annuler">
+    </p>
+  </form>
+  <script>
+    function validation(){
+       let form = document.forms["Inscp"] ; 
+       if(form.nom.value.trim() === ""){
+        alert("le nom  est obligatoire.")
+        return false ;
+       }
+       if(form.email.value.trim() === ""){
+        alert("l'email est obligatoire") ;
+        return false ; 
+       }
+       if(form.motPasse.value.trim() === ""){
+        alert("le mot de passe est obligatoire") ; 
+        return false; 
+       }
+       if(form.telephone.value.trim() === ""){
+        alert("le telephone est obligatoire") ; 
+        return false ; 
+       }
+       if(form.langue.value.trim() === ""){
+        alert("la langue est obligatoire") ; 
+        return false  ; 
+       }
+       if(form.commentaire.value.trim() === ""){
+        alert("le commantaire est obligatoire") ; 
+        return false ; 
+       }
+       return true ; 
+    }
+  </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Titre de ma page</title>
+</head>
+<body>
+  <h1 style="text-align: center;">Formulaire d'inscription</h1>
+  
+  <form name="Inscp" action=""  method="post">
+    <p>
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" size="65">
+    </p>
+    
+    <p>
+      <label for="email">E-mail :</label>
+      <input type="email" id="email" name="email" size="65">
+    </p>
+    
+    <p>
+      <label for="motPasse">Mot de passe :</label>
+      <input type="password" id="motPasse" name="motPasse" size="65">
+    </p>
+    
+    <p>
+      <label for="telephone">Telephone :</label>
+      <input type="text" id="telephone" name="telephone" size="65">
+    </p>
+    
+    <p>
+      <label for="langue">Langue :</label>
+      <select id="langue" name="langue">
+        <option value="anglais">Anglais</option>
+        <option value="francais">Français</option>
+        <option value="arabe">Arabe</option>
+      </select>
+    </p>
+    
+    <p>
+      <label for="commentaire">Commentaire :</label><br>
+      <textarea id="commentaire" name="commentaire" cols="55" rows="4"></textarea>
+    </p>
+    
+    <p>
+      <input type="submit" value="Valider" name="Valider">
+      <input type="reset" value="Annuler" name="Annuler">
+    </p>
+  </form>
+  <script>
+    let form = document.querySelector("form") ; 
+    form.addEventListener("submit" , function(event){
+        let nom = document.querySelector("#nom").value.trim() ; 
+        if(nom === ""){
+            event.preventDefault()
+            alert("le nom est obligatoire !! ") ;
+        }
+        let email = document.querySelector("#email").value.trim() ; 
+        if(email === ""){
+            event.preventDefault()
+            alert("l'email est obligatoire !! ") ;
+        }
+        let motPasse = document.querySelector("#motPasse").value.trim() ; 
+        if(motPasse === ""){
+            event.preventDefault()
+            alert("le motPasse est obligatoire !! ") ;
+        }
+        let telephone = document.querySelector("#telephone").value.trim() ; 
+        if(telephone === ""){
+            event.preventDefault()
+            alert("le telephone est obligatoire !! ") ;
+        }
+        let langue = document.querySelector("#langue").value.trim() ; 
+        if(langue === ""){
+            event.preventDefault()
+            alert("langue est obligatoire !! ") ;
+        }
+        let commentaire = document.querySelector("#commentaire").value.trim() ; 
+        if(commentaire === ""){
+            event.preventDefault()
+            alert("commentaire est obligatoire !! ") ;
+        }
+
+
+    })
+  </script>
+</body>
+</html>
